@@ -46,7 +46,7 @@ dedent html
 
 printf "$html" > $file
 
-for i in `ls ./house_photos | sort -n`; do
+for i in `ls ./house_photos | sort -nr`; do
     echo "    <img src=\"./house_photos/$i\" />" >> $file;
 done
 
