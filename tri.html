@@ -4,7 +4,7 @@
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
 />
-<script type="text/javascript" src="tri.js"></script>
+
 <head>
     <meta charset="UTF-8">
     <title>Triathlon Training Schedule</title>
@@ -21,12 +21,24 @@
             <th>Swim Limit</th>
         </tr>
         <tr>
-            <td id="runIncrement">2</td>
-            <td id="runLimit">26.2</td>
-            <td id="bikeIncrement">3</td>
-            <td id="bikeLimit">112</td>
-            <td id="swimIncrement">100</td>
-            <td id="swimLimit">3862</td>
+            <td id="runIncrement">
+                <input onChange="userInputChanged()" type="number" min="1" step="1" id="runIncrementInput" name="userRunIncrement" value="2">
+            </td>
+            <td id="runLimit">
+                <input onChange="userInputChanged()" type="number" step=".1" min="0.1" id="runLimitInput" name="userRunLimit" value="26.2">
+            </td>
+            <td id="bikeIncrement">
+                <input onChange="userInputChanged()" type="number" step="1" min="1" id="bikeIncrementInput" name="userBikeIncrement" value="3">
+            </td>
+            <td id="bikeLimit">
+                <input onChange="userInputChanged()" type="number" step="1" min="1" id="bikeLimitInput" name="userBikeLimit" value="112">
+            </td>
+            <td id="swimIncrement">
+                <input onChange="userInputChanged()" type="number" step="100" min="100" id="swimIncrementInput" name="userSwimIncrement" value="100">
+            </td>
+            <td id="swimLimit">
+                <input onChange="userInputChanged()" type="number" step="100" min="100" id="swimLimitInput" name="userSwimLimit" value="3862">
+            </td>
         </tr>
     </table>
 </div>
@@ -127,4 +139,5 @@
 </table>
 </div>
 </body>
+<script type="text/javascript" src="tri.js"></script>
 </html>

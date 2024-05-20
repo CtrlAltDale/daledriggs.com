@@ -1,4 +1,12 @@
-var debug = true;
+var debug = false;
+var runIncrementInput = parseInt(document.getElementById("runIncrementInput").value);
+var runLimitInput = parseInt(document.getElementById("runLimitInput").value);
+var bikeIncrementInput = parseInt(document.getElementById("bikeIncrementInput").value);
+var bikeLimitInput = parseInt(document.getElementById("bikeLimitInput").value);
+var swimIncrementInput = parseInt(document.getElementById("swimIncrementInput").value);
+var swimLimitInput = parseInt(document.getElementById("swimLimitInput").value);
+var loadWeek = -1;
+
 
 function getNote(note) {
     myPrint(note)
@@ -9,7 +17,32 @@ function getNote(note) {
     }
 
     return "";
+}
 
+var startSet = {
+    wkoutDate: new Date(2024,5,24),
+    run: 5,
+    bike: 18,
+    swim: 800,
+    note: ""
+}
+
+function getInputData() {
+    runIncrementInput = parseInt(document.getElementById("runIncrementInput").value);
+    runLimitInput = parseInt(document.getElementById("runLimitInput").value);
+    bikeIncrementInput = parseInt(document.getElementById("bikeIncrementInput").value);
+    bikeLimitInput = parseInt(document.getElementById("bikeLimitInput").value);
+    swimIncrementInput = parseInt(document.getElementById("swimIncrementInput").value);
+    swimLimitInput = parseInt(document.getElementById("swimLimitInput").value);
+}
+
+function userInputChanged() {
+    getInputData();
+    var table = document.getElementById("wkoutTable");
+    while (table.rows.length > 13) {
+        table.deleteRow(-1);
+    }
+    calculateTableData()
 }
 
 function createRow(wkoutDate, run, bike, swim, note) {
@@ -20,7 +53,7 @@ function createRow(wkoutDate, run, bike, swim, note) {
     let c4 = document.createElement("td");
     let c5 = document.createElement("td");
 
-    c1.innerHTML = wkoutDate;
+    c1.innerHTML = wkoutDate.toLocaleDateString();
     c2.innerHTML = run;
     c3.innerHTML = bike;
     c4.innerHTML = swim;
@@ -53,17 +86,71 @@ function parseWkoutString(wkoutString) {
     }
 }
 
-fetch('tridata.csv')
-.then(response => response.text())
-.then(data => {
-    var lines = data.split("\n");
-    myPrint(lines[0])
-    var inner = "";
+function userLimitsReached(row) {
+    return row.bike >= bikeLimitInput && row.run >= runLimitInput && row.swim >= swimLimitInput;
+}
+
+function updateNoteLetter() {
+    loadWeek++;
+    if (loadWeek > 7){
+        loadWeek = 0;
+    }
+    if(loadWeek < 3){
+        return ""
+    } else if (loadWeek === 3 || loadWeek === 7){
+        return "R"
+    } else {
+        return "B"
+    }
+
+}
+
+function printAllData(row) {
+    myPrint("runIncrementInput:" + runIncrementInput);
+    myPrint("runLimitInput:" + runLimitInput);
+    myPrint("bikeIncrementInput:" + bikeIncrementInput);
+    myPrint("bikeLimitInput:" + bikeLimitInput);
+    myPrint("swimIncrementInput:" + swimIncrementInput);
+    myPrint("swimLimitInput:" + swimLimitInput);
+    myPrint("wkoutDate:" + row.wkoutDate);
+    myPrint("run:" + row.run);
+    myPrint("bike:" + row.bike);
+    myPrint("swim:" + row.swim);
+    myPrint("note:" + row.note);
+}
+
+function incrementRowData(row) {
+    row.wkoutDate.setDate(row.wkoutDate.getDate() + 7);
+    if(row.run < runLimitInput) {
+        row.run += runIncrementInput;
+    }
+    if (row.bike < bikeLimitInput) {
+        row.bike += bikeIncrementInput;
+    }
+    if (row.swim < swimLimitInput) {
+        row.swim += swimIncrementInput;
+    }
+    row.note = updateNoteLetter()
+    return row;
+}
+
+function calculateTableData() {
     var table = document.getElementById("wkoutTable");
-    lines.forEach((line, idx) => {
-        var p = parseWkoutString(lines[idx])
-        var row = createRow(p.wkoutDate, p.run, p.bike, p.swim, p.note);
-        myPrint(row)
+    var rowData = structuredClone(startSet)
+    var iter = 0;
+    while (!userLimitsReached(rowData) && iter < 1000) {
+        rowData = incrementRowData(rowData);
+        var row = createRow(rowData.wkoutDate, rowData.run, rowData.bike, rowData.swim, rowData.note);
         table.appendChild(row);
-    });
-})
+        myPrint(iter)
+        iter++;
+    }
+    myPrint("iter:" + iter)
+    myPrint("row:" + rowData)
+    myPrint("userLimitsReached:" + userLimitsReached(rowData))
+
+}
+
+calculateTableData()
+
+
