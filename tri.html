@@ -4,11 +4,33 @@
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
 />
+<script type="text/javascript" src="tri.js"></script>
 <head>
     <meta charset="UTF-8">
     <title>Triathlon Training Schedule</title>
 </head>
 <body>
+<div class="container">
+    <table>
+        <tr>
+            <th>Run Increment</th>
+            <th>Run Limit</th>
+            <th>Bike Increment</th>
+            <th>Bike Limit</th>
+            <th>Swim Increment</th>
+            <th>Swim Limit</th>
+        </tr>
+        <tr>
+            <td id="runIncrement">2</td>
+            <td id="runLimit">26.2</td>
+            <td id="bikeIncrement">3</td>
+            <td id="bikeLimit">112</td>
+            <td id="swimIncrement">100</td>
+            <td id="swimLimit">3862</td>
+        </tr>
+    </table>
+</div>
+<hr/>
 <div class="container">
 <table class="striped">
     <tr>
@@ -44,7 +66,7 @@
         <td>1</td>
         <td>8</td>
         <td>400</td>
-        <td>Recovery</td>
+        <td><a href="#" data-tooltip="One of each workout">Recovery</a></td>
     </tr>
     <tr>
         <td>5/6/2024</td>
@@ -102,6 +124,9 @@
         <td>800</td>
         <td><a href="#" data-tooltip="One of each workout">Recovery</a></td>
     </tr>
+    <div id="dynamic-tri-schedule">
+
+    </div>
 </table>
 </div>
 </body>
