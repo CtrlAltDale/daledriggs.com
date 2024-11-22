@@ -43,7 +43,6 @@ a {
 	position: fixed;
 	margin-bottom: 0px;
 	height: 5%;
-	
 	display: block;
 }
  
@@ -55,9 +54,7 @@ a {
 }
 
 table, th, td {
-	/*border: 1px solid black;*/
 	text-align: center;
-
 }
 
 table.center{
@@ -67,21 +64,25 @@ table.center{
 
 input {
 	text-align: center;
+	width: auto;
 }
-#myURL {
 
+textarea {
+	width: 60%;
+	height: 150px;
+	text-align: center;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	background-color: #f8f8f8;
+	font-size: 16px;
+	resize: none;
+}
+
+#myURL {
 	font-family: 'Helvettica Neue', Helvetica, Arial, sans-serif;
 	font-size: 100%;
 }
 #ppcImage {
 	height: 35%
-}
-
-#emma_img {
-	/*image from: http://vignette4.wikia.nocookie.net/disney/images/f/f7/Olaf_transparent_pose.png/revision/latest?cb=20160301215157*/
-	background: url("Olaf.png") center center no-repeat;
-}
-.emma_outline {
-	font-size: 4em;
-	-webkit-text-stroke: 1px white;
 }

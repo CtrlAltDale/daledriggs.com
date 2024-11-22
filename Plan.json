@@ -1,0 +1,34 @@
+{
+	"name":"dale_test",
+	"type":"triathlon",
+	"plan": [
+		{
+			"title": "Running Foundation",
+			"abbr": "RF3",
+			"description": "",
+			"duration": 60,
+			"julianDay": 0,
+			"type": "run",
+			"code":"5MZ150MZ25MZ1"
+		},
+		{
+			"title": "Swim Recovery",
+			"abbr": "SRe1",
+			"description": "Recovery swim",
+			"duration": 1500,
+			"julianDay": 0,
+			"type": "swim",
+			"code":"1500Z1"
+		},
+		{
+			"title": "Cycle Speed Play",
+			"abbr": "CSP1",
+			"description": "Cycling sprints",
+			"duration": 27,
+			"julianDay": 0,
+			"type": "cycle",
+			"code":"5MZ15MZ23(2MZ42MZ1)5MZ1"
+		}
+	]
+
+}
