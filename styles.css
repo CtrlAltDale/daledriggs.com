@@ -55,11 +55,28 @@ a {
 
 table, th, td {
 	text-align: center;
+	padding: 12px;
+	border-collapse: collapse;
+}
+
+table th {
+	font-size: 1.1rem;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 600;
+	padding: 15px 20px;
+}
+
+table td {
+	padding: 15px;
+	font-size: 1.1rem;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 600;
 }
 
 table.center{
 	margin-left: auto;
-	margin-right:auto;
+	margin-right: auto;
+	margin-top: 20px;
 }
 
 input {
@@ -85,4 +102,94 @@ textarea {
 }
 #ppcImage {
 	height: 35%
+}
+
+body.food-page {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+
+body.food-page .content {
+	width: 420px;
+	max-width: 95vw;
+}
+
+body.food-page table.center {
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.food-selector {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	width: 100%;
+	margin-top: 20px;
+}
+
+.food-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.food-label {
+	font-size: 1.1rem;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 600;
+	text-align: left;
+	min-width: 80px;
+}
+
+.food-value {
+	font-size: 1.1rem;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 600;
+	text-align: right;
+}
+
+select#foodDropdown {
+	width: auto;
+	min-width: 240px;
+	padding: 12px 10px;
+	font-size: 1.1rem;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 600;
+	border: 2px solid #000;
+	border-radius: 6px;
+	background-color: #fff;
+	box-sizing: border-box;
+}
+
+.food-inputs {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	gap: 16px;
+	margin-top: 28px;
+	width: 100%;
+}
+
+.food-inputs input {
+	width: 100%;
+	padding: 14px 16px;
+	font-size: 1.1rem;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 600;
+	border: 2px solid #000;
+	border-radius: 6px;
+	text-align: center;
+	box-sizing: border-box;
+	background-color: #fff;
+}
+
+.food-results {
+	margin-top: 28px;
+	font-size: 1.2rem;
+	font-weight: 600;
+	line-height: 2.4;
 }

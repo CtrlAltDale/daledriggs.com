@@ -1,0 +1,51 @@
+    <html>
+        <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" type="text/css" href="styles.css">
+            <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+            <script src="food.js"></script>
+            <title>LoseIt Caculator</title>
+        </head>
+        <body class="food-page">
+            <div class='content'>
+                <div class="food-selector">
+                    <div class="food-row">
+                        <span class="food-label">Food</span>
+                        <select id="foodDropdown" onchange="calculateOutputs()">
+                            <option value="">-- Select --</option>
+                            <option value="chickenBreast">Chicken Breast (100g)</option>
+                            <option value="turkey">Ground Turkey (100g)</option>
+                            <option value="beef">Beef (100g)</option>
+                            <option value="shrimp">Shrimp (100g)</option>
+                            <option value="turkeySausage">Turkey Sausage (100g)</option>
+                        </select>
+                    </div>
+                    <div class="food-row">
+                        <span class="food-label">Calories</span>
+                        <span class="food-value" id="calories">--</span>
+                    </div>
+                    <div class="food-row">
+                        <span class="food-label">Protein</span>
+                        <span class="food-value" id="protein">--</span>
+                    </div>
+                </div>
+
+                <div class="food-inputs">
+                    <input type="number" inputmode="decimal" id="preWeight" placeholder="Pre-cooked weight (g)" onchange="calculateOutputs()">
+                    <input type="number" inputmode="decimal" id="postWeight" placeholder="Post-cooked weight (g)" onchange="calculateOutputs()">
+                    <input type="number" inputmode="decimal" id="proteinGoal" placeholder="Protein goal (g) per serving" onchange="calculateOutputs()">
+                </div>
+
+                <div class="food-results">
+                    <p>Serving Count: <span id="servingSize">--</span></p>
+                    <p>Protein per Serving: <span id="proteinPerServing">--</span> g</p>
+                    <p>Calories per Serving: <span id="caloriesPerServing">--</span> kcal</p>
+                    <p>Weight per bag: <span id="bagWeight">--</span> g</p>
+                    <p>LoseIt! Value: <span id="loseItValue">--</span></p>
+                </div>
+
+            </div>
+
+        </body>
+    </html>
