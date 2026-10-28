@@ -33,7 +33,7 @@ a:hover {
 }
 a {
 	color: gray;
-	font-family: 'Robot', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	text-decoration: none;
 	font-size: 300%;
 }
@@ -96,7 +96,7 @@ textarea {
 	resize: none;
 }
 
-#myURL {
+.myURL {
 	font-family: 'Helvettica Neue', Helvetica, Arial, sans-serif;
 	font-size: 100%;
 }
