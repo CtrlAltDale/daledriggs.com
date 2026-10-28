@@ -103,6 +103,10 @@ textarea {
 #ppcImage {
 	height: 35%
 }
+.footerIcon {
+	width: 16px;
+	height: 16px;
+}
 
 body.food-page {
 	display: flex;
